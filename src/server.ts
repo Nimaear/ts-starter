@@ -1,4 +1,19 @@
-import testMe, { hello } from "test";
+import express from "express";
 
-console.log(testMe({ required: true }));
-console.log(hello({ required: true }));
+const app = express();
+
+app.get("/hi", (req, res) => {
+  res.json({
+    hello: "world"
+  });
+});
+
+app.get("/bye", (req, res) => {
+  res.json({
+    bye: "world"
+  });
+});
+
+app.listen(3010, "0.0.0.0", () => {
+  console.log("listening");
+});
